@@ -72,7 +72,7 @@
 		<key>selectedTab</key>
 		<string>description</string>
 	</dict>
-	<key>CFBundleURLTypes</key>
+	<key>CFBundlgit eURLTypes</key>
         <array>
                 <dict>
                         <key>CFBundleURLName</key>
