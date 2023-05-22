@@ -1,0 +1,14 @@
+{
+    "url_patterns": [
+        {
+            "pattern": "https://www\\.google\\.com.*",
+            "browser": "chrome",
+            "incognito": true
+        },
+        {
+            "pattern": "https://www\\.youtube\\.com.*",
+            "browser": "chrome",
+            "incognito": false
+        }
+    ]
+}

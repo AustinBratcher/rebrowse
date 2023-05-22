@@ -1,7 +1,9 @@
 {
   "tasks": {
-    "build": "deno compile --allow-env --allow-run --allow-read --allow-write ./rebrowse.ts --output ./bin/rebrowse",
-    "run": "./bin/rebrowse https://google.com",
+    "build-ARM": "deno compile --allow-env --allow-run --allow-read --allow-write ./rebrowse.ts --target x86_64-apple-darwin --output ./ReBrowse.App/Contents/MacOS/rebrowse-x64",
+    "build-x64": "deno compile --allow-env --allow-run --allow-read --allow-write ./rebrowse.ts --target aarch64-apple-darwin --output ./ReBrowse.App/Contents/MacOS/rebrowse-ARM",
+    "build": "deno task build-x64 && deno task build-ARM",
+    "run": ".//rebrowse https://google.com",
     "test": "deno task build && deno task run"
   }
 }
