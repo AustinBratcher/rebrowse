@@ -1,7 +1,8 @@
 import {Browser, BrowserEnum, Config, UrlPattern} from "./types.ts";
-import { ReadJsonFileSync } from "./utils.ts";
+import { ReadJsonFileSync, logger } from "./utils.ts";
 import { getMatchingBrowserOrDefault } from "./browsers/browsers.ts";
 
+logger.info('ReBrowse started');
 const configPath = Deno.env.get("HOME") + "/.rebrowse";
 const config: Config = ReadJsonFileSync<Config>(configPath);
 
@@ -18,6 +19,7 @@ const openWithBrowser = (url: string, incognito: boolean, browserEnum: BrowserEn
     browser.open(url, incognito);
 }
 
+logger.info('Args', Deno.args);
 Deno.args.forEach(url => {
     const matchingPattern: UrlPattern | undefined = patterns.find(p => p.pattern.test(url));
     if(matchingPattern) {
@@ -26,3 +28,5 @@ Deno.args.forEach(url => {
     }
     openWithBrowser(url, false, BrowserEnum.Chrome);
 });
+
+logger.info('ReBrowse Ended')

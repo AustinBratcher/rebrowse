@@ -1,0 +1,7 @@
+{
+  "tasks": {
+    "build": "deno compile --allow-env --allow-run --allow-read --allow-write ./rebrowse.ts --output ./bin/rebrowse",
+    "run": "./bin/rebrowse https://google.com",
+    "test": "deno task build && deno task run"
+  }
+}
